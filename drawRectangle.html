@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ hình chữ nhật</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    #wrapper{
+        width: 600px;
+        height: 600px;
+        margin: 40px auto;
+    }
+    #myCanvas{
+        border: 1px solid red;
+    }
+    #form{
+        margin-bottom: 15px;
+    }
+    h1{
+        text-align: center;
+    }
+</style>
+<body>
+    <div id="wrapper">
+        <h1>Vẽ hình chữ nhật</h1>
+        <div id="form">
+            <label for="width">Chiều rộng</label>
+            <input type="text" value="" id="width">
+            <label for="width">Chiều dài</label>
+            <input type="text" value="" id="height">
+            <button type="button" onclick="draw()">Vẽ hình</button>
+        </div>
+        <div>
+            <canvas id="myCanvas" width="480" height="320"></canvas>
+        </div>
+    </div>
+    <script>
+        function draw(){
+            let width = document.getElementById('width').value;
+            let height = document.getElementById('height').value;
+            let canvas = document.getElementById('myCanvas');
+            let ctx = canvas.getContext('2d');
+
+            ctx.beginPath();
+            ctx.rect(40,40,width,height);
+            ctx.fillStyle = 'red';
+            ctx.fill();
+            ctx.closePath();
+        }
+    </script>
+</body>
+</html>

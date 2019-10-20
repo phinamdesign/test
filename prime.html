@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số nguyên tố max và min trong 1 mảng cho trước</title>
+</head>
+<body>
+    <div>
+        <h1>Tìm số nguyên tố max và min trong 1 mảng cho trước</h1>
+        <div id="array"></div><br>
+        <div>
+            <button type="button" onclick="checkMax()">Tìm Max</button>
+            <button type="button" onclick="checkMin()">Tìm Min</button>
+        </div><br>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        var arr = [1,6,3,7,9,4,2,8,11];
+        var prime = [];
+        document.getElementById('array').innerHTML = 'Các phần tử của mảng '+arr;
+
+        function checkPrime(n){
+            if(n < 2) return false;
+            for(let i=2 ; i<n ; i++){
+                if(n%i==0) return false;
+            }
+            return true;
+        }
+
+        function checkMax(){
+            for(let i= 0;i<arr.length;i++){
+                if(checkPrime(arr[i])){
+                    prime.push(arr[i]);
+                }
+            }
+            let max = prime[0];
+            for(let i=0;i<prime.length;i++){
+                if(max<prime[i]){
+                    max = prime[i];
+                }
+            }
+           document.getElementById('result').innerHTML = 'Số nguyên tố lớn nhất trong mảng là '+ max;
+        }
+
+        function checkMin(){
+            for(let i= 0;i<arr.length;i++){
+                if(checkPrime(arr[i])){
+                    prime.push(arr[i]);
+                }
+            }
+            let min = prime[0];
+            for(let i=0;i<prime.length;i++){
+                if(min>prime[i]){
+                    min = prime[i];
+                }
+            }
+            document.getElementById('result').innerHTML = 'Số nguyên tố nhỏ nhất trong mảng là '+ min;
+        }
+    </script>
+</body>
+</html>
